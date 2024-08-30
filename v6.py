@@ -3,6 +3,7 @@
 from array import array
 from PyQt6 import QtCore
 from PyQt5.QtGui import QImage
+import base64
 
 def add_leading_zeros(rgb):
     str_hex = "%x" % rgb
@@ -71,7 +72,23 @@ def add_preview():
     # TODO import Gcode
     processed_marker = ";MKSPREVIEWPROCESSED\n"
 
-    image = QImage("wolf_big.png")
+    base64_string = """iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACcklEQVR4Ae2VSUtycRTG/7sGGqQoaH
+cboIIogxa1KaGBqI2LVkEk0SKIwqJxUVYqojjjhFPOE4qICweEXLhwpR/Bj+BHeN57LrzQB1DhffEH
+F+79b84953me82esT58+ffr8D8zPz4v39/dlb29v2YmJCY71ktnZWXGtVkMul4PVasXc3JyU9Yrl5W
+VJKpVCPp+HVquFQqHAwcGBnPUCGns4HG6FQiFoNBqhe51Oh8PDw2/WK3i9xXq9Hk6nEy6XC5+fn8L7
+0NCQiPWC6+trUyaTQTKZRCKRgMPhgNfrxfj4OMe6xe7uruzi4kIRCASapVIJsVgMHo8HSqUSX19fsF
+gsWFhY6I4RV1ZWJGS4YrEI6rxcLiMSicDn88FsNsNms+H19RU7Ozsm1mn4eImpOMWNOifz0djpsdvt
+MBgMwvhfXl5weXnZGhgY6KwP+BFn0+k0qtUqCoUC3G630DUVpUelUuHh4QF3d3e4ublps07Dx0seDA
+aF4jR6ih1pbjKZhO7JgLQHnp6eOi/B8PCwiMZfr9cRj8cF/Y1GI97f34UFRBGk98fHR1xdXWF0dJRj
+nWRxcVEwX6PRQKVSQTQaFTomvW9vb8GnAufn5zg7O8Pm5mbnF5FIJOL4hdOmwiSBWq3G/f29UJh+QC
+aT4fj4+Of5+RljY2Mc6wbr6+ty3lwt3uHY2toyTU5OSuj86OjoRyqVttbW1qQfHx/tkZGR7m3Bk5MT
+OS9F+3fE+Mvne29vLzs4OCjy+/1N/n5osm6xuroqIR9sbGxI/p5tb2/L+Ui2ZmZmOOp+enqaY91kaW
+lJ/Pt7amqKo7V8enqqYH3+Rf4AHyxYfh4D6GwAAAAASUVORK5CYII="""
+
+    image_data = base64.b64decode(base64_string)
+    image = QImage()
+    image.loadFromData(image_data)
+    
     screenshot_string = ""
     simage = 0
     gimage = 0
