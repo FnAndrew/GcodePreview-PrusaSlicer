@@ -1,0 +1,68 @@
+from PIL import Image
+
+# open image
+image = Image.open('image-small.png')
+
+pixel = image.getpixel((20, 20))
+
+# convert pixel to RGB
+print(pixel)
+
+# convert RGB to HEX
+hex_pixel = '#{:02x}{:02x}{:02x}'.format(*pixel)
+
+print(hex_pixel)
+
+# convert RGB to HEX like this (00000000245206c506c506c506c5)
+
+
+# import base64 image
+base64_image = """
+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
+P/D8syZh+MgPBeAAAAAElFTkSuQmCC
+"""
+
+# decode base64 string
+import base64
+from io import BytesIO
+
+image_data = base64.b64decode(base64_image)
+image = Image.open(BytesIO(image_data))
+
+pixel = image.getpixel((20, 20))
+print(pixel)
+
+pixel_color = image.getcolors()
+print(len(pixel_color))
+
+hex_pixel = '#{:02x}{:02x}{:02x}'.format(*pixel)
+print(hex_pixel)
+
+# convert RGB to HEX
+
