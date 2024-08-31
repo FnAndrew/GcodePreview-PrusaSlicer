@@ -9,6 +9,7 @@ Remake of [MKS plugin](https://github.com/PrintMakerLab/mks-wifi-plugin) and it'
 The original script uses Cura's [Snapshot](https://github.com/Ultimaker/Cura/blob/main/cura/Snapshot.py) class to make a screenshot of a model.
 
 We edited it to use the PrusaSlicer's G-code thumbnail and Post-processing scripts.
+
 ## Ussage
 
 1. Go to `Printers > General > Firmware > G-code thumbnails` and insert `400x300/PNG`. Now the slicer will make a screenshot of a model each time you Export it.
@@ -26,6 +27,20 @@ We edited it to use the PrusaSlicer's G-code thumbnail and Post-processing scrip
 5. Enjoy! Now the slicer will add a preview of a model on the Export
 
 ![Preview showcase](/assets/preview-showcase.png)
+
+
+
+## Today's problem ⚠
+
+Now the script creates `simage` so now the preview can be seen between the G-code files in the 3D printer.
+
+**But** to see the preview while printing, the `gimage` has to be created. Otherwise the printer will show something like this:
+![gimage showcase1](/assets/gimage-showcase1.png)
+
+And when you try to copy the `simage` as `gimage` it will display something like this :D
+![gimage showcase2](/assets/gimage-showcase2.png)
+
+Working on it! :D
 
 ## FAQ
 
