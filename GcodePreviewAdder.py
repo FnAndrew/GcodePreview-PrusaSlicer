@@ -64,6 +64,7 @@ def generate_preview(image):
     encoded = False
 
     screenshot_string += add_screenshot_str(image, simage, simage, ";simage:",encoded)
+    screenshot_string += add_screenshot_str(image, gimage, gimage, ";;gimage:",encoded)
     screenshot_string += "\r"
     return simage,gimage,screenshot_string
 
