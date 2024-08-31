@@ -1,6 +1,6 @@
 # Copyright (c) 2021
 # MKS Plugin is released under the terms of the AGPLv3 or higher.
-# Edited by its.Andrew & cltWilly
+# Edited by FnAndrew & cltWilly
 
 from PyQt5.QtGui import QImage
 import sys, base64

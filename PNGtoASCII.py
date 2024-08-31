@@ -41,6 +41,10 @@ P/D8syZh+MgPBeAAAAAElFTkSuQmCC
 image_data = base64.b64decode(base64_string)
 image = Image.open(BytesIO(image_data))
 
+# Alternativa - Načtení uloženého obrázku
+# with open("image.png", "rb") as f:
+#     image = Image.open(f)
+
 # Převod na stupně šedi
 gray_image = image.convert("L")
 
@@ -52,8 +56,8 @@ new_height = int(aspect_ratio * new_width * 0.55)  # Vzhledem k rozměrům znak�
 resized_gray_image = gray_image.resize((new_width, new_height))
 
 # ASCII znaky podle jasu
-#ASCII_CHARS = "@%#*+=-:. "
-ASCII_CHARS = "bcd02456"
+ASCII_CHARS = "@%#*+=-:. "
+# ASCII_CHARS = "bcd02456"
 
 # Převod pixelů na ASCII znaky
 def pixel_to_ascii(image):

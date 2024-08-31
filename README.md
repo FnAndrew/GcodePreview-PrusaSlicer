@@ -8,7 +8,7 @@ Remake of [MKS plugin](https://github.com/PrintMakerLab/mks-wifi-plugin) and it'
 
 The original script uses Cura's [Snapshot](https://github.com/Ultimaker/Cura/blob/main/cura/Snapshot.py) class to make a screenshot of a model.
 
-I edited it to use the PrusaSlicer's G-code thumbnail and Post-processing scripts.
+We edited it to use the PrusaSlicer's G-code thumbnail and Post-processing scripts.
 ## Ussage
 
 1. Go to `Printers > General > Firmware > G-code thumbnails` and insert `400x300/PNG`. Now the slicer will make a screenshot of a model each time you Export it.
