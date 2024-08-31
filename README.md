@@ -8,7 +8,7 @@ Remake of [MKS plugin](https://github.com/PrintMakerLab/mks-wifi-plugin) and it'
 
 The original script uses Cura's [Snapshot](https://github.com/Ultimaker/Cura/blob/main/cura/Snapshot.py) class to make a screenshot of a model.
 
-We edited it to use the PrusaSlicer's G-code thumbnail and Post-processing scripts.
+We edited it to extract the PrusaSlicer's G-code thumbnail and ussing Post-processing script it's edited and added to the G-code in the corresponding format.
 
 ## Ussage
 
@@ -28,19 +28,6 @@ We edited it to use the PrusaSlicer's G-code thumbnail and Post-processing scrip
 
 ![Preview showcase](/assets/preview-showcase.png)
 
-
-
-## Today's problem ⚠
-
-Now the script creates `simage` so now the preview can be seen between the G-code files in the 3D printer.
-
-**But** to see the preview while printing, the `gimage` has to be created. Otherwise the printer will show something like this:
-![gimage showcase1](/assets/gimage-showcase1.png)
-
-And when you try to copy the `simage` as `gimage` it will display something like this :D
-![gimage showcase2](/assets/gimage-showcase2.png)
-
-Working on it! :D
 
 ## FAQ
 
@@ -69,6 +56,8 @@ Now the step 1 should work :D
 
 Our remake of this script uses Default configuration of the plugin and it can be remade for any other configuration.
 
+Just rewrite the values in the `generate_preview(image)` function according to your needs.
+
 ```json
   [
     { "index": 1, "label": "Default", "simage": "100", "gimage": "200", "encoded": false },
@@ -81,3 +70,7 @@ Our remake of this script uses Default configuration of the plugin and it can be
     { "index": 8, "label": "Elegoo Neptune3+", "simage": "160", "gimage": "200", "encoded": true  }
 ]
 ```
+
+#### Common examples of wrong configuration:
+![gimage showcase1](/assets/gimage-showcase1.png)
+![gimage showcase1](/assets/gimage-showcase2.png)

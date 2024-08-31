@@ -58,9 +58,10 @@ def add_screenshot_str(img, width, height, img_type, encoded):
 
 def generate_preview(image):
     screenshot_string = ""
+    
+    # Edit these values according to the JSON
     simage = 100
     gimage = 200
-    print("Get current preview settings.")
     encoded = False
 
     screenshot_string += add_screenshot_str(image, simage, simage, ";simage:",encoded)
