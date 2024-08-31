@@ -20,7 +20,9 @@ We edited it to extract the PrusaSlicer's G-code thumbnail and ussing Post-proce
 
 3. Get a full path of a Python executable. Something like `C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python39_64\python.exe`
 
-4. Now you can go to `Print Settings > Output options > Post-processing scripts` and insert the Python and script paths in quotes
+4. Now you can go to `Print Settings > Output options > Post-processing scripts` and insert the Python and script paths in quotes like:
+
+`"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Python 3.9" "C:\path-to-file\GcodePreview\GcodePreviewAdder.py"`
 
 ![Script settings](/assets/script-settings.png)
 
@@ -72,5 +74,8 @@ Just rewrite the values in the `generate_preview(image)` function according to y
 ```
 
 #### Common examples of wrong configuration:
+When there is no `gimage`:
 ![gimage showcase1](/assets/gimage-showcase1.png)
+
+When there is too small `gimage`:
 ![gimage showcase1](/assets/gimage-showcase2.png)
