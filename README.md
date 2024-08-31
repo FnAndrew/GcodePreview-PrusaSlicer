@@ -28,7 +28,11 @@ We edited it to extract the PrusaSlicer's G-code thumbnail and ussing Post-proce
 
 5. Enjoy! Now the slicer will add a preview of a model on the Export
 
+File list preview:
 ![Preview showcase](/assets/preview-showcase.png)
+
+While printing preview:
+![gimage showcase1](/assets/gimage-showcase3.png)
 
 
 ## FAQ
@@ -54,9 +58,10 @@ Now the step 1 should work :D
   "full-python-path\python.exe" -m pip install PyQt5
 ```
 
+
 #### Q: It doesn't work for my printer
 
-Our remake of this script uses Default configuration of the plugin and it can be remade for any other configuration.
+A: Our remake of this script uses Default configuration of the plugin and it can be remade for any other configuration.
 
 Just rewrite the values in the `generate_preview(image)` function according to your needs.
 
@@ -79,3 +84,16 @@ When there is no `gimage`:
 
 When there is too small `gimage`:
 ![gimage showcase1](/assets/gimage-showcase2.png)
+
+
+#### Q: What about a color of the preview?
+
+A: The color of the preview depends on a color of the model
+
+
+#### Q: Can I try (debug) the script without PrusaSlicer?
+
+A: Yes! Run it with your Python interpreter like this:
+```bash
+  python3 "path-to-file\GcodePreviewAdder.py" "path-to-file\sliced-model.gcode"
+```
