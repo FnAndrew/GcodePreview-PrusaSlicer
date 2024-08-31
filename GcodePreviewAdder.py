@@ -163,9 +163,19 @@ def formatePreviewToGcode(preview):
         
     return formated_preview
 
-def savePreviewToGcode(preview, outputFilePath):
-    with open(outputFilePath, 'a') as f:
-        f.write('\n\n;Printer preview' + '\n' + preview)
+def savePreviewToGcode(preview, outputFilePath):    
+    # with open(outputFilePath, 'a') as f:
+    #     f.write('\n\n;Printer preview' + '\n' + preview)
+    
+    # Read the file and insert the preview at the beginning
+    with open(outputFilePath, 'r') as f:
+        lines = f.readlines()
+        
+        lines.insert(0, f"; generated preview\n{preview}\n\n")
+        
+    # Write new content to the file
+    with open(outputFilePath, 'w') as fo:
+        fo.writelines(lines)
 
 # Actual usage
 #sourceFile=sys.argv[1]
