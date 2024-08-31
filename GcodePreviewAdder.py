@@ -1,9 +1,9 @@
 # Copyright (c) 2021
 # MKS Plugin is released under the terms of the AGPLv3 or higher.
+# Edited by its.Andrew & cltWilly
+
 from PyQt5.QtGui import QImage
 import sys, base64
-from io import BytesIO
-from PIL import Image
 
 def add_leading_zeros(rgb):
     str_hex = "%x" % rgb
@@ -64,42 +64,10 @@ def generate_preview(image):
     encoded = False
 
     screenshot_string += add_screenshot_str(image, simage, simage, ";simage:",encoded)
-    #screenshot_string += add_screenshot_str(image, gimage, gimage, ";;gimage:",encoded)
     screenshot_string += "\r"
     return simage,gimage,screenshot_string
 
-def get_preview_from_png(image):
-    
-    # print("Converting image to QImage")
-    
-    # image_data = base64.b64decode(img_Base64)
-    # image_png = Image.open(BytesIO(image_data))
-    
-    # with open("./tmp.png", "wb") as f:
-    #     f.write()
-    # f.close()
-    
-    # Image.open(BytesIO(base64.b64decode(img_Base64))).save("./tmp.png")
-    
-    # image = QImage("./tmp.png")
-    # image = QImage()
-    # image.loadFromData(img_Base64, "PNG")
-    
-    # import base64 
-    # image_bytes = base64.b64decode(img_Base64)
-    # image_stream = BytesIO(image_bytes)
-    # # Open the image using Pillow (PIL)
-    # image = Image.open(image_stream)
-    # image.save("./temp.png")
-    
-    # # f = open("./temp.png", "w")
-    # # f.write(png_recovered)
-    # # f.close()
-    
-    # image = QImage("./temp.png")
-    
-    # print(image.colorCount())
-    
+def get_preview_from_png(image):  
     screenshot_string = ""
 
     if image:
@@ -108,13 +76,12 @@ def get_preview_from_png(image):
         print("Skipping adding screenshot")
         return
     
-    # print(screenshot_string)
-    print("done")
+    #print("preview done")
     
     return screenshot_string
 
 # -- My code --
-def getGcodePrusaPreview(gcodePath, resolution="400x300"):
+def getGcodePrusaPreview(gcodePath): # resolution="400x300"
     img_string = ""
     inside_thumbnail = False
 
@@ -164,9 +131,6 @@ def formatePreviewToGcode(preview):
     return formated_preview
 
 def savePreviewToGcode(preview, outputFilePath):    
-    # with open(outputFilePath, 'a') as f:
-    #     f.write('\n\n;Printer preview' + '\n' + preview)
-    
     # Read the file and insert the preview at the beginning
     with open(outputFilePath, 'r') as f:
         lines = f.readlines()
@@ -178,23 +142,16 @@ def savePreviewToGcode(preview, outputFilePath):
         fo.writelines(lines)
 
 # Actual usage
-#sourceFile=sys.argv[1]
-sourceFile = "E:/Ostatni - Soubory/3DModels/Gcodes/Testy/trash/Wolf.gcode"
+sourceFile=sys.argv[1]
 
 # přečtení souboru a získání Base64 stringu
 img_Base64 = getGcodePrusaPreview(sourceFile)
 
+# konverze Base64 na QImage
 qimage = convertBase64ToQImage(img_Base64)
 
 # získání preview pro tiskárnu z QImage
 img_preview = get_preview_from_png(qimage)
-
-# zformátování preview pro Gcode
-# img_preview_formated = formatePreviewToGcode(img_preview)
-
-# uložení preview do log souboru
-with open("plugin-output2.txt", 'w') as f:
-    f.write(img_preview)
 
 # uložení preview do Gcode souboru
 savePreviewToGcode(img_preview, sourceFile)
