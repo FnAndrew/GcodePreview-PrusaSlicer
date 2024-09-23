@@ -1,7 +1,9 @@
 
 # G-code Preview for PrusaSlicer
 
-Remake of [MKS plugin](https://github.com/PrintMakerLab/mks-wifi-plugin) and it's [MKSPreview.py](https://github.com/PrintMakerLab/mks-wifi-plugin/blob/develop/MKSPreview.py) file to make a print preview in PrusaSlicer
+Remake of [MKS plugin](https://github.com/PrintMakerLab/mks-wifi-plugin) and it's [MKSPreview.py](https://github.com/PrintMakerLab/mks-wifi-plugin/blob/develop/MKSPreview.py) file to make a print preview in PrusaSlicer.
+
+The script was created primarily for the `Two Trees Bluer` printer, but by configuring it according to the JSON file below, it can be used for other types of printers as well.
 
 
 ## How it works
