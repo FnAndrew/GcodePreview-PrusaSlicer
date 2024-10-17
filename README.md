@@ -41,9 +41,9 @@ While printing preview:
 
 #### Q: I got an error code 1 when exporting
 
-A: Most likely your Python interpreter doesn't have installed the libraries.
+A: Most likely your Python interpreter doesn't have the libraries installed.
 
-1. With thu full Python path run this: 
+1. With the full Python path run this: 
 ```bash
   "full-python-path\python.exe" -m pip list
 ```
@@ -55,7 +55,7 @@ A: Most likely your Python interpreter doesn't have installed the libraries.
 
 Now the step 1 should work :D
 
-3. When the step 1 is working and there isn't listed the `PyQt5` library. Install it ussing
+3. When the step 1 is working but the `PyQt5` library is not listed. Install it ussing
 ```bash
   "full-python-path\python.exe" -m pip install PyQt5
 ```
