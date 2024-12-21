@@ -18,7 +18,7 @@ We edited it to extract the PrusaSlicer's G-code thumbnail and ussing Post-proce
 
 ![Thumbnail settings](/assets/thumbnail-settings.png)
 
-2. Get a full path of this script. Something like `python-to-file\GcodePreviewAdder.py`
+2. Get a full path of this script. Something like `path-to-file\GcodePreviewAdder.py`
 
 3. Get a full path of a Python executable. Something like `C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python39_64\python.exe`
 
